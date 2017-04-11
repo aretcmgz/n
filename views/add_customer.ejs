@@ -1,31 +1,47 @@
 <%- include layouts/header.ejs %>
 
-        <div class="page-data">
-            
-            <form method="post" action="/customers/add">
-                <table cellpadding="11">
+    <div class="page-data">
+
+        <form method="post" action="/customers/add">
+            <table cellpadding="11">
+               <!-- <tr>
+                    <td class="label">Photo</td>
+                    <td>: <input type="file" name="profileIMG" accept="image/*"></td>
+                </tr> -->
                 <tr>
-                    <td class="label">Name</td><td>: <input type="text" name="name" required></td>
-                 </tr>
-                 <tr>
-                    <td class="label" valign="top">Address</td><td valign="top">: <textarea name="address" required cols="30" rows="5"></textarea></td>
+                    <td class="label">Name</td>
+                    <td>: <input type="text" name="name" required></td>
                 </tr>
                 <tr>
-                    <td class="label">Email</td><td>: <input type="text" name="email" required></td>
-                 </tr>
-                  <tr>
-                    <td class="label">Phone</td><td>: <input type="text" name="phone" required></td>
-                 </tr>
-                 <tr>
+                    <td class="label">LastName</td>
+                    <td>: <input type="text" name="lastname" required></td>
+                </tr>
+                <tr>
+                    <td class="label" valign="top">Address</td>
+                    <td valign="top">: <textarea name="address" required cols="30" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <td class="label">Email</td>
+                    <td>: <input type="text" name="email" required></td>
+                </tr>
+                <tr>
+                    <td class="label">Phone</td>
+                    <td>: <input type="text" name="phone" required></td>
+                </tr>
+                <tr>
+                    <td class="label">password</td>
+                    <td>: <input type="text" name="password" required></td>
+                </tr>
+                <tr>
                     <td class="label"></td>
                     <td>
                         &nbsp; <input type="submit" name="submit" value="Save">
-                       <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
+                        <input type="button" name="cancel" value="Cancel" class="cancel" onClick="cancelAdd()">
                     </td>
-                 </tr>
-                </table>
-            </form>
-            
-        </div>
-        
-<%- include layouts/footer.ejs %>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+
+    <%- include layouts/footer.ejs %>

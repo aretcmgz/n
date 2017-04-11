@@ -7,7 +7,7 @@ exports.list = function(req, res){
 
   req.getConnection(function(err,connection){
        
-        var query = connection.query('SELECT * FROM customer',function(err,rows)
+        var query = connection.query('SELECT * FROM users',function(err,rows)
         {
             
             if(err)
@@ -33,7 +33,7 @@ exports.edit = function(req, res){
     
     req.getConnection(function(err,connection){
        
-        var query = connection.query('SELECT * FROM customer WHERE id = ?',[id],function(err,rows)
+        var query = connection.query('SELECT * FROM users WHERE id = ?',[id],function(err,rows)
         {
             
             if(err)
@@ -58,13 +58,16 @@ exports.save = function(req,res){
         var data = {
             
             name    : input.name,
+            lastname : input.lastname,
             address : input.address,
             email   : input.email,
-            phone   : input.phone 
-        
+            phone   : input.phone,
+            password : input.password,
+            profileIMG : input.profileIMG,
+            
         };
         
-        var query = connection.query("INSERT INTO customer set ? ",data, function(err, rows)
+        var query = connection.query("INSERT INTO users set ? ",data, function(err, rows)
         {
   
           if (err)
@@ -89,13 +92,16 @@ exports.save_edit = function(req,res){
         var data = {
             
             name    : input.name,
+            lastname : input.lastname,
             address : input.address,
             email   : input.email,
-            phone   : input.phone 
+            phone   : input.phone,
+            password : input.password,
+            profileIMG : input.profileIMG,
         
         };
         
-        connection.query("UPDATE customer set ? WHERE id = ? ",[data,id], function(err, rows)
+        connection.query("UPDATE users set ? WHERE id = ? ",[data,id], function(err, rows)
         {
   
           if (err)
@@ -115,7 +121,7 @@ exports.delete_customer = function(req,res){
     
      req.getConnection(function (err, connection) {
         
-        connection.query("DELETE FROM customer  WHERE id = ? ",[id], function(err, rows)
+        connection.query("DELETE FROM users  WHERE id = ? ",[id], function(err, rows)
         {
             
              if(err)
