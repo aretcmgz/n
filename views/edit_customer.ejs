@@ -4,9 +4,6 @@
             
             <form method="post" action="/customers/edit/<%=data[0].id%>">
                 <table cellpadding="11">
-                    <tr>
-                    <td class="label">Photo</td><td>:  <input type="file" name="profileIMG" value="<%=data[0].profileIMG%>" accept="image/*"></td>
-                 </tr>
                 <tr>
                     <td class="label">Name</td><td>: <input type="text" name="name" value="<%=data[0].name%>" required></td>
                  </tr>
