@@ -10,6 +10,7 @@ var path = require('path');
 
 //load customers route
 var customers = require('./routes/customers'); 
+
 var app = express();
 
 var connection  = require('express-myconnection'); 
@@ -54,6 +55,7 @@ app.use(
 
 
 app.get('/', routes.index);
+app.get('/layout/header', routes.list);
 app.get('/customers', customers.list);
 app.get('/customers/add', customers.add);
 app.post('/customers/add', customers.save);

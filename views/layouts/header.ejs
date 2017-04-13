@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <title>Assan admin</title>
 
-        <!-- Bootstrap -->
-        <link href="/../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <!--side menu plugin-->
-        <link href="/../assets/plugins/hoe-nav/hoe.css" rel="stylesheet">
-        <!-- icons-->
-        <link href="/../assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet">
-        <link href="/../assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <!-- dataTables -->
-        <link href="/../assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
-          <link href="/../assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css">
-        <!--template custom css file-->
-        <link href="/../assets/css/style.css" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Assan admin</title>
 
-        <script src="/../assets/js/modernizr.js"></script>
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
+    <!-- Bootstrap -->
+    <link href="/../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!--side menu plugin-->
+    <link href="/../assets/plugins/hoe-nav/hoe.css" rel="stylesheet">
+    <!-- icons-->
+    <link href="/../assets/plugins/ionicons/css/ionicons.min.css" rel="stylesheet">
+    <link href="/../assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- dataTables -->
+    <link href="/../assets/plugins/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css">
+    <link href="/../assets/plugins/datatables/responsive.bootstrap.min.css" rel="stylesheet" type="text/css">
+    <!--template custom css file-->
+    <link href="/../assets/css/style.css" rel="stylesheet">
+
+    <script src="/../assets/js/modernizr.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-    </head>
-    <body hoe-navigation-type="vertical" hoe-nav-placement="left" theme-layout="wide-layout">
+</head>
 
-        <!--side navigation start-->
-        <div id="hoeapp-wrapper" class="hoe-hide-lpanel" hoe-device-type="desktop">
-            <header id="hoe-header" hoe-lpanel-effect="shrink">
-                <div class="hoe-left-header">
-                    <a href="#"> A<span>SSAN</span></a>
-                    <span class="hoe-sidebar-toggle"><a href="#"></a></span>
-                </div>
+<body hoe-navigation-type="vertical" hoe-nav-placement="left" theme-layout="wide-layout">
 
-               <div class="hoe-right-header" hoe-position-type="relative">
-                    <span class="hoe-sidebar-toggle"><a href="#"></a></span>
-                  <!--   <ul class="left-navbar">
+    <!--side navigation start-->
+    <div id="hoeapp-wrapper" class="hoe-hide-lpanel" hoe-device-type="desktop">
+        <header id="hoe-header" hoe-lpanel-effect="shrink">
+            <div class="hoe-left-header">
+                <a href="#"> A<span>SSAN</span></a>
+                <span class="hoe-sidebar-toggle"><a href="#"></a></span>
+            </div>
+
+            <div class="hoe-right-header" hoe-position-type="relative">
+                <span class="hoe-sidebar-toggle"><a href="#"></a></span>
+                <!--   <ul class="left-navbar">
                         <li>
                             <div class="top-search hidden-xs">
                                 <form>
@@ -99,25 +101,43 @@
                             </ul>
                         </li>
                     </ul>-->
-                </div>
-            </header>
-            <div id="hoeapp-container" hoe-color-type="lpanel-bg5" hoe-lpanel-effect="shrink">
-                <aside id="hoe-left-panel" hoe-position-type="absolute">
+            </div>
+        </header>
+        <div id="hoeapp-container" hoe-color-type="lpanel-bg5" hoe-lpanel-effect="shrink">
 
+            <aside id="hoe-left-panel" hoe-position-type="absolute">
+
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
                     <ul class="nav panel-list">
-
                         <li>
-                            <a href="/customers">
+                            <a href="<%=data[i].link%>">
                                 <i class="fa fa-home"></i>
-                                <span class="menu-text">Users</span>
+                                <span class="menu-text"><%=data[i].visibleName%></span>
                                 <span class="selected"></span>
                             </a>
                         </li>
-                       
                     </ul>
-                </aside><!--aside left menu end-->
-                <section id="main-content">
-                    <div class="space-30"></div>
-                    <div class="container">
+                    <% }
+            
+             }else{ %>
+                        <ul class="nav panel-list">
 
-                        <div class="row">
+                            <li>
+                                <a href="#">
+                                    <i class="fa fa-home"></i>
+                                    <span class="menu-text">no menu</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <% } %>
+            </aside>
+            <!--aside left menu end-->
+
+            <section id="main-content">
+                <div class="space-30"></div>
+                <div class="container">
+
+                    <div class="row">
