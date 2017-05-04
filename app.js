@@ -55,7 +55,6 @@ app.use(
 
 
 app.get('/', routes.index);
-app.get('/layout/header', routes.list);
 app.get('/customers', customers.list);
 app.get('/customers/add', customers.add);
 app.post('/customers/add', customers.save);

@@ -2,23 +2,24 @@
 /*
  * GET users listing.
  */
+var common = require("./common.js");
 
 exports.list = function(req, res){
-
   req.getConnection(function(err,connection){
-       
-        var query = connection.query('SELECT * FROM users',function(err,rows)
-        {
-            
-            if(err)
-                console.log("Error Selecting : %s ",err );
-     
-            res.render('customers',{page_title:"List Users - appHomeless",data:rows});
-                
-           
-         });
+        common.list(connection, function(err, menuResult) {
+            if (!err) {
+                var query = connection.query('SELECT * FROM users',function(err,rows)
+                {
+                    if (err) {
+                        console.log("Error Selecting : %s ", err);            
+                    }
+                    
+                    res.render('customers',{ page_title: "List Users - appHomeless", data:rows, menu: menuResult});
+                });
+            }
+        });
          
-         //console.log(query.sql);
+        // console.log(query.sql);
     });
   
 };
